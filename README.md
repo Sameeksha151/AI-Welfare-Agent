@@ -1,2 +1,2 @@
-Welfare-scheme-recommendation-AI-agent
+# AI Welfare Agent
 AI Welfare Agent is a smart tool that helps people discover government welfare schemes they’re eligible for. Using AI, it matches users with the right benefits based on their needs, making the whole process simple, quick, and stress-free.
