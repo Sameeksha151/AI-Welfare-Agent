@@ -1,3 +1,1 @@
-<<<<<<< HEAD
-# Welfare-scheme-recommendation-AI-agent
-Connecting you with government welfare schemes, scholarships, and benefits you're eligible for. Our AI-powered system makes it simple to find the support you deserve.
+AI Welfare Agent is a smart tool that helps people discover government welfare schemes they’re eligible for. Using AI, it matches users with the right benefits based on their needs, making the whole process simple, quick, and stress-free.
