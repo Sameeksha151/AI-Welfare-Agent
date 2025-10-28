@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welfare Empowerment Hub - Discover Your Benefits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fffe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d3e, #4caf50, #66bb6a);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1b5e20, #2e7d3e, #4caf50);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.15"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff9800, #ffc107);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+            background: linear-gradient(45deg, #f57c00, #ff9800);
+        }
+
+        .stats-section {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border-left: 5px solid #4caf50;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2e7d3e;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .about-section {
+            padding: 4rem 0;
+            background: #f8fffe;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2e7d3e;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .features-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4caf50, #66bb6a);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2e7d3e;
+            margin-bottom: 1rem;
+        }
+
+        .sdg-section {
+            background: linear-gradient(135deg, #1b5e20, #2e7d3e);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .sdg-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sdg-badge {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-section {
+            background: #f8fffe;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #2e7d3e;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2e7d3e;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🌱 Welfare Empowerment Hub</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Your Benefits</h1>
+                <p>Connecting you with government welfare schemes, scholarships, and benefits you're eligible for. Our AI-powered system makes it simple to find the support you deserve.</p>
+                <a href="https://forms.gle/vMYuRRZ9j9poeczu9" target="_blank" class="cta-button">Find My Benefits</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">378M+</div>
+                    <div class="stat-text">People lifted from poverty in India through government schemes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.5%</div>
+                    <div class="stat-text">Current poverty rate in India (down from 25% in 2012)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">157+</div>
+                    <div class="stat-text">Government schemes available with funding over ₹500 crores each</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Bridging the Awareness Gap</h2>
+                    <p>Despite numerous government welfare schemes being available, many eligible citizens remain unaware of the benefits they can access. Studies show that awareness of schemes significantly affects their implementation and reach.</p>
+                    <p>Our mission is simple: to ensure no one misses out on the support they're entitled to. We use intelligent technology to match your profile with relevant government schemes, scholarships, and benefits.</p>
+                    <p>From rural poverty schemes to urban employment programs, from educational scholarships to healthcare benefits - we help you discover opportunities that can transform your life.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: linear-gradient(135deg, #4caf50, #81c784); height: 300px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🤝
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #2e7d3e; margin-bottom: 3rem;">How We Help You</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Matching</h3>
+                    <p>Our intelligent system analyzes your information and automatically identifies all relevant government schemes, scholarships, and benefits you qualify for.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Simple Application</h3>
+                    <p>Just fill out one easy form with your basic details - name, age, category, education, and more. Our system does the rest of the work for you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Personalized Results</h3>
+                    <p>Receive a detailed email with all the schemes you're eligible for, complete with application procedures and contact information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Comprehensive Coverage</h3>
+                    <p>From central government schemes to state-specific benefits, from education to healthcare, employment to housing - we cover it all.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Processing</h3>
+                    <p>No waiting weeks for responses. Our automated system processes your information and sends results within minutes of form submission.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your personal information is processed securely and used only to match you with relevant schemes. We respect your privacy completely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sdg-section">
+        <div class="container">
+            <div class="sdg-content">
+                <div class="sdg-badge">UN SDG Goal #1</div>
+                <h2>No Poverty</h2>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95;">
+                    We're committed to achieving the United Nations Sustainable Development Goal of ending poverty in all its forms everywhere. By connecting people with available welfare schemes and benefits, we're working towards a future where everyone has access to the support they need to thrive.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p>Have questions or need help? Reach out to us:</p>
+                <p><strong>Email:</strong> <a href="mailto:knowledgee313@gmail.com">knowledgee313@gmail.com</a></p>
+                <p style="margin-top: 1.5rem; font-style: italic; color: #888;">
+                    "Empowering communities, one scheme at a time."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Welfare Empowerment Hub. Making welfare accessible to all.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to stats when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate stat cards on scroll
+        document.querySelectorAll('.stat-card, .feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
